@@ -1,0 +1,23 @@
+#root { 
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height:100vh;
+}
+
+.Comment {
+  border:2px solid black;
+  padding:1rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.UserInfo,.Comment > * {
+  padding:0.2rem 0;
+}
+
+.UserInfo_Name  { 
+  text-align: center;
+  font-weight: bold;
+}
