@@ -1,6 +1,6 @@
 import  React  from  'react'
 
-function Avatar(props){
+export default function Avatar(props){
   return (
     <div className="Comment">
       <div className="UserInfo">
@@ -21,4 +21,3 @@ function Avatar(props){
 }
 
 
-export default Avatar

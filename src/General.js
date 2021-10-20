@@ -61,11 +61,9 @@ const element = <Car carName='Sedan' />
 -Observações
  * O state deve ser modificado usando o setState();
  * State e props podem ser atualizados de forma assincronas 
- * O setState() mescla o objeto que você atualiza ao objeto do 
-   this.state.
- * É possível usar componentes sem state dentro de componentes com
- * state e vice-versa(Lembrando stateless=sem state, stateful=
-   com state)
+ * O setState() mescla o objeto que você atualiza ao objeto do this.state.
+ * É possível usar componentes sem state dentro de componentes com state e vice-versa(Lembrando
+ stateless=sem state, stateful= com state)
 */
 class Moto extends React.Component {
   constructor(props){
@@ -99,12 +97,45 @@ class Moto extends React.Component {
   manipulador de evento dependendo do Browser utilizado.
 
 - Porque usar bind(this) no manipulador de eventos? 
-  ????????????
-  ????????????
+  Por 3 fatores:
+  1. Ao chamar o componente e passar a função, não se usa
+  o parênteses.
+  Por este motiva o this não é definido, 
+  E.g: <button onClick={giveAlert}>Clique</button>
+  2.Por isso é utilizado no construtor:
+  this.giveAlert = this.giveAlert.bind(this);
+  ^ Este é o this do construtor, ^ Este é o this da função
+  na Classe, e o bind(this) define a função da Classe para
+  pertencer à Classe.
 
 - Observação:
  * Não retorne false para pevinir que 
    o React não use seu comportamento padrão
    em vez disso use e.preventDefault() explicitamente,
    onde o 'e' representa o syntetic event
+*/
+
+/* Chapter 7
+  
+- Redenrização Condicional
+  É possível usar if, operador ternário e &&(AND) para a
+  redenrização de um Elemento.
+  E.g: Está no arquivo Grettings.js
+
+ */
+
+/* Chapter 8 
+
+- Listas em React
+  Listas podem ser feitas através de um array, por um map 
+  por exemplo.
+  E devem possuir um id ( quer geralmente é o indice, em
+  útimos casos se usa o indice do array)
+
+*/
+
+/* Chapter 9 
+
+- Formulários
+
 */

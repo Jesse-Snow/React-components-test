@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Clock from './Clock'
 import Avatar from './Avatar'
+import Alert from './Alert'
+import Grettings from './Grettings.js'
+import ColorList from './ColorList.js'
 
 
 // Testing data
@@ -10,6 +13,7 @@ const user1 = {
   text:'You are a great Coder!',
   date:new Date(),
 }
+const cores = ['Vermelho','Amarelo','Verde','Roxo'];
 
 // Menu Comonent
 function Menu(){
@@ -27,6 +31,18 @@ function Menu(){
         date={`${user1.date.getUTCDate()}/
         ${user1.date.getUTCMonth()} /
         ${user1.date.getUTCFullYear()}`}/>
+      </div>
+      <div>
+        <h2>Alert Component</h2>
+        <Alert alertTxt='Conseguiuuuuu' />
+      </div>
+      <div>
+        <h2>Grettings Component</h2>
+        <Grettings isLogged={true} />
+      </div>
+      <div>
+        <h2>ColorList Component</h2>
+        <ColorList colors={cores} />
       </div>
     </div>
   )
