@@ -137,5 +137,9 @@ class Moto extends React.Component {
 /* Chapter 9 
 
 - Formulários
+  Para manipular os formulários, e evitá-los de seu 
+  comportamento padrão( Quando aperta submit, ele envia
+  os dados e muda a página ) é necessário adicionar um
+  evento aos seus elementos ( Como input e textarea ).
 
 */
