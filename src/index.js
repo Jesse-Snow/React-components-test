@@ -23,7 +23,7 @@ const cores = ['Vermelho','Amarelo','Verde','Roxo'];
 // Menu Comonent
 function Menu(){
   return (
-    <div>
+    <div className="menu">
       <h1>Welcome to Testing React!</h1>
       <p>Put Components in the code here</p>
       <div>
