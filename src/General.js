@@ -43,7 +43,7 @@ function Car(props){
 }
 const element = <Car carName='Sedan' />
 
-/* Chapter 5 (Hard)
+/* Chapter 5 
 
 -O que é um state?
  * É o que permite os componentes alterarem sua
@@ -96,6 +96,13 @@ class Moto extends React.Component {
   o React usa um evento sintético onClick quer chamará o
   manipulador de evento dependendo do Browser utilizado.
 
+- Como usar um evento?
+  No atributo desejado ( um button por exemplo ), se usa
+  o nome do evento(do syntect event) e o atribui uma callback   (dentro de uma expreção {} ) tendo como parâmetro o evento.
+  E.g: < button onClick={(evento) => { 
+    console.log(evento.target.nodeName)
+  } // Irá mostrar o nome do elemento que ativou o evento
+
 - Porque usar bind(this) no manipulador de eventos? 
   Por 3 fatores:
   1. Ao chamar o componente e passar a função, não se usa
@@ -137,9 +144,19 @@ class Moto extends React.Component {
 /* Chapter 9 
 
 - Formulários
-  Para manipular os formulários, e evitá-los de seu 
-  comportamento padrão( Quando aperta submit, ele envia
-  os dados e muda a página ) é necessário adicionar um
-  evento aos seus elementos ( Como input e textarea ).
+  Quando o React renderiza e controla o formulário, é 
+  chamado de Controlled component.
+
+  Elementos de formulário como input,textarea, select,
+  possuem um atributo value, que pode ser acessado 
+  ( event.targt.value ) e alterado através do State,
+  o evento terá funções que irão modificar o estado
+  do formulário.
+
+  Caso seja necessário utilizar mais de um input, pode ser
+  adicionado um novo atributo no elemento chamado "name", 
+  e fazer deste novo atributo(name) o resultado do atributo
+  value do elemento.
+  E.g:Está no arquivo NumerAndAge.js 
 
 */

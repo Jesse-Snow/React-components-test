@@ -5,6 +5,8 @@ import Avatar from './Avatar'
 import Alert from './Alert'
 import Grettings from './Grettings.js'
 import ColorList from './ColorList.js'
+import NameForm from './NameForm.js'
+import NameAndAge from './NameAndAge.js'
 
 
 // Testing data
@@ -14,6 +16,9 @@ const user1 = {
   date:new Date(),
 }
 const cores = ['Vermelho','Amarelo','Verde','Roxo'];
+
+// Renember
+// See how to use same dir in tmux.
 
 // Menu Comonent
 function Menu(){
@@ -43,6 +48,14 @@ function Menu(){
       <div>
         <h2>ColorList Component</h2>
         <ColorList colors={cores} />
+      </div>
+      <div> 
+        <h2>NameForm Component</h2>
+        <NameForm />
+      </div>
+      <div>
+        <h2>NameAndAge Component</h2>
+        <NameAndAge />
       </div>
     </div>
   )
