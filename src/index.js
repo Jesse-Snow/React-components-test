@@ -17,9 +17,6 @@ const user1 = {
 }
 const cores = ['Vermelho','Amarelo','Verde','Roxo'];
 
-// Renember
-// See how to use same dir in tmux.
-
 // Menu Comonent
 function Menu(){
   return (

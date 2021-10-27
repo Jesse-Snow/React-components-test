@@ -34,9 +34,15 @@ let root = document.getElementById('root');
  * Se usa <NomeDoComponente props='algo' />
 
 - Observações:
- * Componentes podem referir-se a outros componentes em sua saída
- * Componentes devem agir como funções puras em ralação ao seus
-   props.
+ * Pode se passar uma quantidade limitada de props em um 
+ componente, caso seja necessário usar funcionalidades não
+ gráficas entre componentes, pode se extrair estas 
+ funcionalidades em módulos.
+ * Props são somente para leitura.
+ * Componentes podem referir-se a outros componentes em sua 
+ saída
+ * Componentes devem agir como funções puras em ralação ao
+ seus props.
 */
 function Car(props){ 
   return <p>My car is a {props.carName}</p>
@@ -64,6 +70,8 @@ const element = <Car carName='Sedan' />
  * O setState() mescla o objeto que você atualiza ao objeto do this.state.
  * É possível usar componentes sem state dentro de componentes com state e vice-versa(Lembrando
  stateless=sem state, stateful= com state)
+ * A diferença entre state e props, é que props é modificável
+ enquanto props é somente para leitura.
 */
 class Moto extends React.Component {
   constructor(props){
@@ -158,5 +166,93 @@ class Moto extends React.Component {
   e fazer deste novo atributo(name) o resultado do atributo
   value do elemento.
   E.g:Está no arquivo NumerAndAge.js 
+
+/* Chapter 10
+
+- Elevação de State  
+  Quando dois ou mais Componentes filhos utilizam o mesmo 
+  state em seus componentes, o state pode ser elevado para o
+  Componente Pai, tornando o pai como única fonte de verdade 
+  do state. E os filhos podem acessar o state do pai.
+ */
+
+/* Chapter 11
+- Composição vs Herança  
+  No React é bastante recomendado o uso de Composição entre os
+  componentes ao invés do uso de herança.
+
+- Mais qual diferença entre Herança e Composição?
+  Enquanto a herança herda propriedades de uma Classe Pai, a
+  Composição compões uma Classe.
+  O exemplo abaixo usa o Corpo Humano como exemplo:
+  E.g: Classe Mão herda Classe Tecido; // Herança
+  E.g: Classe Dedo Compõe Classe Mão; ou Classe Mão é Composta
+  por Classe Dedo; // Composição  
+
+- Em React
+  Logo ao invés de herança: <Paragrafo /> herda <Pagina /> 
+  Uma melhor opção é a Composição: 
+  <Pagina>
+    <Pragrafo> 
+    <Pragrafo> 
+    <Pragrafo> 
+  </Pagina>
+
+- Uso do props.children
+  O props.children ( dentro da div do mesmo componente ) recebe 
+  uma expreção JSX para ser renderizada. 
+  E.g: function Mensagem(props) { 
+    return <div>{props.children}</div>
+  }
+  function dizerOi (props) {
+    return ( <Mensagem><h1>Oiiii</h1></Mensagem>)
+  }
+  
+- Para casos Especiais
+  A casos que um Componente possa ter um formato semelhante à outro, 
+  basta utilizar as props para este componente especial.
+  E.g: function MensagemBomDia(props){
+    return (<Mensagem><h1>props.bomdia</h1>)
+  }
+  E.g:function dizerBomDia(){
+    return (
+      <MensagemBomDia bomdia="BOM DIAAA!"</MensagemBomDia>
+    )
+  }
+  
+- Obs: Também é possível fazer Contenção em Componentes de Classe.
+
+*/
+
+/* Chapter 12
+ 
+ - Para ajudar no Processo de Criação React aqui vai umas dicas:
+
+ 1.Identificar Componentes e separá-los em hierarquias na UI.
+   * Pode se usar o princípio da Responsabilidade única para
+   saber quais são os componentes, e caso o componente cresça, 
+   ele será dividivo/extraido para outros componentes.
+
+ 2. Criar versão Estática do app, com o intuito de renderizar
+ os dados e componentes, sem nenuma interatividade, use os 
+ props para passar dados de pai para filh, e não usar state nesta
+ etapa.
+
+ 3. Identificar quais dados precisam de State, em outras palavras, 
+ quais dados serão mutáveis.
+
+ 4.Identificar o local do State.E.g: Um state pode ser colocado em 
+ um Componente Pai comum entre dois Componentes filhos, pode até 
+ se criar um Componente Pai para armazenar o state caso não exista
+ um Componente Pai.
+
+ 5.Fazer fluxo de dados inverso, ou seja, garantir que o Componente 
+ Pai(Ou os componentes pais) receba informações de seus Componentes 
+ filhos.E.g: Passar o valor do input dos filhos para o State do pai.
+
+*/
+
+/* React Hooks
+ - Passa state para Componentes de Função...
 
 */
